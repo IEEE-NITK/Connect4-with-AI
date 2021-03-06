@@ -23,6 +23,7 @@ while Q !=0:
         else:
             print("1")
     Q=Q-1
+    count = 0
     
         
 
