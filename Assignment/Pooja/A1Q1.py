@@ -2,13 +2,10 @@ s = input("").split(" ")
 N = int(s[0]); M = int(s[1]); K = int(s[2]); W = int(s[3])
 matrix = []
 for i in range(N):
-    b=list(map(int,input().split()))
-    matrix.append(b)
-for i in matrix:
-    for j in i:
-        if j<0 or j>K:
-            print("Elements of matrix are not in range 0 to",K)
-            exit()
+    sub_matrix = input("").split(" ")
+    for j in range(len(sub_matrix)):
+        sub_matrix[j] = int(sub_matrix[j])
+    matrix.append(sub_matrix)
 transpose_matrix = []
 for i in range(M):
     c = []
