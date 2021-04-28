@@ -5,7 +5,7 @@ negdiag = [0 for i in range(2*n)]
 queens = 0
 count = 0
 positions = [0 for i in range(n)]
-def printarr(arr,n):
+def printarr():
     for i in range(n):
         for j in range(n):
             if(positions[i] == j):
@@ -20,7 +20,7 @@ def place(queens):
     global positions
     if(queens == n):
         count+=1
-        printarr(positions,n)
+        printarr()
     else:
         for i in range(n):
             if(col[i] == 0 and posdiag[queens + i] == 0 and negdiag[n-1+queens-i] == 0):
