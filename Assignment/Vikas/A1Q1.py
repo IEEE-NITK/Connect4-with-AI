@@ -1,4 +1,4 @@
-def consec(grid,n,m,w):
+def consec():
     min_div = w-1
     max_div1 = n-w+1
     max_div2 = m-w+1
@@ -43,7 +43,7 @@ def consec(grid,n,m,w):
 
 
 n,m,k,w = list(map(int,input().split()))
-board = []
+grid = []
 for i in range(n):
-    board.append(list(map(int,input().split())))
-print(consec(board,n,m,w))
+    grid.append(list(map(int,input().split())))
+print(consec())
