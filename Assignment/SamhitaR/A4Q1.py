@@ -84,7 +84,7 @@ def winning_check(board,player):
 board = create_board()
 #evaluating scores
 def evaluate(a,p):
-    s = 0
+    s1 = 0
     if p == 2:
         opp = 1
     else:
@@ -92,17 +92,17 @@ def evaluate(a,p):
     #if a.count(p) == 4:
     #    s += 10000
     if a.count(p) == 3 and a.count(0) == 1:
-        s += 10
+        s1 += 10
     elif a.count(p) == 2 and a.count(0) == 2:
-        s += 7
+        s1 += 7
     #deducting scores if the opponent has an advantage
     #if a.count(opp) == 4:
     #    s -= 10000
     if a.count(opp) == 3 and a.count(0) == 1:
-        s -= 70
+        s1 -= 70
     elif a.count(opp) == 2 and a.count(0) == 2:
-        s -= 15
-    return s
+        s1 -= 15
+    return s1
 #assigning scores for moves
 def score(board,p):
     s = 0
@@ -142,7 +142,7 @@ def minimax(board,max_player,d):
         return (None,inf)
     if winning_check(board,1)>0:
         return (None,-inf)
-    if moves > 42:
+    if moves >= 42:
         return (None,0)
     if d == 0:
         return (None,score(board,2))
@@ -152,10 +152,10 @@ def minimax(board,max_player,d):
         for c in valid_cols(board):
             r = get_row(board,c)
             drop_piece(board,c,r,2)
-            s = minimax(board,False,d-1)[1]
+            s2 = minimax(board,False,d-1)[1]
             drop_piece(board,c,r,0)
-            if s> val:
-                val = s
+            if s2> val:
+                val = s2
                 col = c
         return col,val
     else:
@@ -164,10 +164,10 @@ def minimax(board,max_player,d):
         for c in valid_cols(board):
             r = get_row(board,c)
             drop_piece(board,c,r,1)
-            s = minimax(board,True,d-1)[1]
+            s2 = minimax(board,True,d-1)[1]
             drop_piece(board,c,r,0)
-            if s< val:
-                val = s
+            if s2< val:
+                val = s2
                 col = c
         return col,val
 
@@ -191,8 +191,8 @@ if mode == 1:
                 c = int(input("Enter the column:"))
                 b = valid_choice(board,c)
         else:
-            c, minimax_score = minimax(board,True,2)
-            #print(minimax_score)
+            c, minimax_score = minimax(board,True,3)
+            print(minimax_score)
         r = get_row(board,c)
         drop_piece(board,c,r,p)
         moves += 1
