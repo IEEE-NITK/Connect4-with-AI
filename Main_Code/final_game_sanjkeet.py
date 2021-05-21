@@ -1,16 +1,3 @@
-# Removed the circles above the board
-# Made the following new funtions - draw_main_screen, set_mode, draw_singleplayer, set_diff, set_player
-# Each function is self explanatory but if you have any problems text me 
-# Now the GUI is much better (Hopefully)
-# I want you guys to make customize the GUI to your own style i.e. add colours which you like for all the pygame windows, text, rectangles and circles
-# In a nutshell, just play around a bit and try to make the UI look better
-# Also do some stress testing i.e. check if each rectangular button works correctly. Use print statements to debug.
-# Check all the modes, difficulties and starting player choices to make sure they work correctly
-# Check if the draw condition works properly
-# After the game using pygame.time.wait causes some issues
-# So you could revert back to the main menu i.e the menu where the user has to select single or multiplayer
-# If there are any issues tell me or Pranav about it, and try to debug and correct it.
-
 import pygame
 
 pygame.init()
