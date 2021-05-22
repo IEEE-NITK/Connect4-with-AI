@@ -1,4 +1,4 @@
-#CLI version of Connect-4 Game
+#GUI version of Connect-4 Game
 
 # import numpy as np
 #from new import WINNER_FONT
@@ -126,7 +126,7 @@ def winning_check(board,player):
 
 #evaluating scores
 def evaluate(a,p):
-    s = 0
+    s1 = 0
     if p == 2:
         opp = 1
     else:
@@ -134,17 +134,17 @@ def evaluate(a,p):
     #if a.count(p) == 4:
     #    s += 10000
     if a.count(p) == 3 and a.count(0) == 1:
-        s += 10
+        s1 += 10
     elif a.count(p) == 2 and a.count(0) == 2:
-        s += 7
+        s1 += 7
     #deducting scores if the opponent has an advantage
     #if a.count(opp) == 4:
     #    s -= 10000
     if a.count(opp) == 3 and a.count(0) == 1:
-        s -= 150
+        s1 -= 150
     #elif a.count(opp) == 2 and a.count(0) == 2:
     #    s -= 15
-    return s
+    return s1
 
 #assigning scores for moves
 def score_move(board,p):
@@ -324,138 +324,79 @@ def set_player():
 					elif y_val >= 500 and y_val <= 600:
 						return 2
 
+
+while(True):
+    moves = 0
+    ongoing = True
 #Drawing the main screen and setting the mode
-draw_main_screen()
-mode = set_mode()
+    draw_main_screen()
+    mode = set_mode()
 
 
 #Creating and drawing the board
-board = create_board()
-draw_board()
+    board = create_board()
+    draw_board()
 
 
 #Let the games begin!!
 #mode = 1
 
-if mode == 1:
-    draw_singleplayer()
-    d = set_diff()
-    first = set_player()
-    draw_board()
-    while ongoing:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                ongoing = False
-                exit()
-        
-            if(moves%2 == 0):
-                p = 1
-            else:
-                p = 2
-            if p==first:
-                if event.type == pygame.MOUSEMOTION:
-                    x_pos = event.pos[0]
-                    pygame.draw.rect(screen,black,(0,0,width,100))
-                    if first == 1:
-                        pygame.draw.circle(screen, red, (x_pos,50), 40)
-                    else:
-                        pygame.draw.circle(screen, yellow, (x_pos,50), 40)
-                    pygame.display.update()
-                if event.type == pygame.MOUSEBUTTONDOWN:
-                    x_val = event.pos[0]
-                    c = int(x_val/100)
-                    if(valid_choice(board,c)):
-                        r = get_row(board,c)
-                        drop_piece(board,c,r,p)
-                        put_token(c,r,p)
-                        moves += 1
-                        w = winning_check(board,1)
-                    if(w>0):
-                        for i in range (MAX_ROWS):
-                            print(*board[i])
-                        print("GAME OVER!")
-                        print("PLAYER",p,"HAS WON!", sep = ' ')
-                        ongoing = False
-                        break
-                    if(moves >= 42):
-                        print("GAME OVER!")
-                        for i in range (MAX_ROWS):
-                            print(*board[i])
-                        print("DRAW")
-                        ongoing = False
-
-                
-        #for i in range (MAX_ROWS):
-        #    print(*board[i])
-        #print()
-        #if p == 1:
-        #    c = int(input("Enter the column:"))
-            else:
-                c, minimax_score = minimax(board,True,d,moves,-math.inf,math.inf)
-            #print(minimax_score)
-                r = get_row(board,c)
-                drop_piece(board,c,r,p)
-                put_token(c,r,p)
-                moves += 1
-                w = winning_check(board,p)
-                if(w>0):
-                    for i in range (MAX_ROWS):
-                        print(*board[i])
-                    print("GAME OVER!")
-                    print("PLAYER",p,"HAS WON!", sep = ' ')
+    if mode == 1:
+        draw_singleplayer()
+        d = set_diff()
+        first = set_player()
+        draw_board()
+        while ongoing:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
                     ongoing = False
-                    break
-                if(moves >= 42):
-                    print("GAME OVER!")
-                    for i in range (MAX_ROWS):
-                        print(*board[i])
-                    print("DRAW")
-                    ongoing = False
-    if p == 1:
-        if first == 1:
-            winner = Winning_Font.render("USER HAS WON!", True, red)
-        else:
-            winner = Winning_Font.render("COMPUTER HAS WON!", True, yellow)
-    elif p==2:
-        if first == 1:
-            winner = Winning_Font.render("COMPUTER HAS WON!", True, red)
-        else:
-            winner = Winning_Font.render("USER HAS WON!", True, yellow)
-    elif moves>=42:
-        winner = Winning_Font.render("DRAW", True, white)
-if mode == 2:
-    while ongoing:
-
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                ongoing = False
-                exit()
-        							 
-            for i in range (MAX_ROWS):
-                print(*board[i])
-        
-            if (moves%2 == 0):
-                p = 1
-            else:
-                p = 2
-        
-            if event.type == pygame.MOUSEMOTION:
-                x_pos = event.pos[0]
-                pygame.draw.rect(screen, black, (0,0,width,100))
-                if p == 1:
-                    pygame.draw.circle(screen,red,(x_pos,50),40)
-                else:
-                    pygame.draw.circle(screen,yellow,(x_pos,50),40)
-                pygame.display.update()
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                x_pos = event.pos[0]
-                c = int(x_pos/100)
+                    exit()
             
-        #c = int(input("Enter the column:"))
-                if valid_choice(board,c):
-        #while (b == False):
-        #    c = int(input("Enter the column:"))
-        #    b = valid_choice(board,c)
+                if(moves%2 == 0):
+                    p = 1
+                else:
+                    p = 2
+                if p==first:
+                    if event.type == pygame.MOUSEMOTION:
+                        x_pos = event.pos[0]
+                        pygame.draw.rect(screen,black,(0,0,width,100))
+                        if first == 1:
+                            pygame.draw.circle(screen, red, (x_pos,50), 40)
+                        else:
+                            pygame.draw.circle(screen, yellow, (x_pos,50), 40)
+                        pygame.display.update()
+                    if event.type == pygame.MOUSEBUTTONDOWN:
+                        x_val = event.pos[0]
+                        c = int(x_val/100)
+                        if(valid_choice(board,c)):
+                            r = get_row(board,c)
+                            drop_piece(board,c,r,p)
+                            put_token(c,r,p)
+                            moves += 1
+                            w = winning_check(board,1)
+                        if(w>0):
+                            for i in range (MAX_ROWS):
+                                print(*board[i])
+                            print("GAME OVER!")
+                            print("PLAYER",p,"HAS WON!", sep = ' ')
+                            ongoing = False
+                            break
+                        if(moves >= 42):
+                            print("GAME OVER!")
+                            for i in range (MAX_ROWS):
+                                print(*board[i])
+                            print("DRAW")
+                            ongoing = False
+
+                    
+            #for i in range (MAX_ROWS):
+            #    print(*board[i])
+            #print()
+            #if p == 1:
+            #    c = int(input("Enter the column:"))
+                else:
+                    c, minimax_score = minimax(board,True,d,moves,-math.inf,math.inf)
+                #print(minimax_score)
                     r = get_row(board,c)
                     drop_piece(board,c,r,p)
                     put_token(c,r,p)
@@ -466,7 +407,6 @@ if mode == 2:
                             print(*board[i])
                         print("GAME OVER!")
                         print("PLAYER",p,"HAS WON!", sep = ' ')
-                        pygame.draw.rect(screen, black, (0,0,width,100))
                         ongoing = False
                         break
                     if(moves >= 42):
@@ -475,17 +415,88 @@ if mode == 2:
                             print(*board[i])
                         print("DRAW")
                         ongoing = False
-                        break
-    if p == 1:
-        winner = Winning_Font.render("PLAYER 1 HAS WON!", True, red)
-    elif p==2:
-        winner = Winning_Font.render("PLAYER 2 HAS WON!", True, yellow)
-    elif moves>=42:
-        winner = Winning_Font.render("DRAW", True, white)
-game_over = Final_Font.render("GAME OVER!", True, white)
-pygame.draw.rect(screen,black,(0,0,width,100))
-pygame.display.update()
-screen.blit(winner, (10,0))
-screen.blit(game_over, (0,250))
-pygame.display.update()
-pygame.time.wait(5000)
+        if p == 1:
+            if first == 1:
+                winner = Winning_Font.render("THE USER HAS WON!", True, red)
+            else:
+                winner = Winning_Font.render("COMPUTER HAS WON!", True, red)
+        elif p==2:
+            if first == 1:
+                winner = Winning_Font.render("COMPUTER HAS WON!", True, yellow)
+            else:
+                winner = Winning_Font.render("THE USER HAS WON!", True, yellow)
+        elif moves>=42:
+            winner = Winning_Font.render("DRAW", True, white)
+        game_over = Final_Font.render("GAME OVER!", True, white)
+        pygame.draw.rect(screen,black,(0,0,width,100))
+        pygame.display.update()
+        screen.blit(winner, (10,0))
+        screen.blit(game_over, (0,250))
+        pygame.display.update()
+        pygame.time.wait(5000)
+    if mode == 2:
+        while ongoing:
+
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    ongoing = False
+                    exit()
+                                        
+                for i in range (MAX_ROWS):
+                    print(*board[i])
+            
+                if (moves%2 == 0):
+                    p = 1
+                else:
+                    p = 2
+            
+                if event.type == pygame.MOUSEMOTION:
+                    x_pos = event.pos[0]
+                    pygame.draw.rect(screen, black, (0,0,width,100))
+                    if p == 1:
+                        pygame.draw.circle(screen,red,(x_pos,50),40)
+                    else:
+                        pygame.draw.circle(screen,yellow,(x_pos,50),40)
+                    pygame.display.update()
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    x_pos = event.pos[0]
+                    c = int(x_pos/100)
+                
+            #c = int(input("Enter the column:"))
+                    if valid_choice(board,c):
+            #while (b == False):
+            #    c = int(input("Enter the column:"))
+            #    b = valid_choice(board,c)
+                        r = get_row(board,c)
+                        drop_piece(board,c,r,p)
+                        put_token(c,r,p)
+                        moves += 1
+                        w = winning_check(board,p)
+                        if(w>0):
+                            for i in range (MAX_ROWS):
+                                print(*board[i])
+                            print("GAME OVER!")
+                            print("PLAYER",p,"HAS WON!", sep = ' ')
+                            pygame.draw.rect(screen, black, (0,0,width,100))
+                            ongoing = False
+                            break
+                        if(moves >= 42):
+                            print("GAME OVER!")
+                            for i in range (MAX_ROWS):
+                                print(*board[i])
+                            print("DRAW")
+                            ongoing = False
+                            break
+        if p == 1:
+            winner = Winning_Font.render("PLAYER 1 HAS WON!", True, red)
+        elif p==2:
+            winner = Winning_Font.render("PLAYER 2 HAS WON!", True, yellow)
+        elif moves>=42:
+            winner = Winning_Font.render("DRAW", True, white)
+        game_over = Final_Font.render("GAME OVER!", True, white)
+        pygame.draw.rect(screen,black,(0,0,width,100))
+        pygame.display.update()
+        screen.blit(winner, (45,0))
+        screen.blit(game_over, (0,250))
+        pygame.display.update()
+        pygame.time.wait(5000)
