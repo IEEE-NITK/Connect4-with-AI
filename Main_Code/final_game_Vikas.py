@@ -1,16 +1,3 @@
-# Removed the circles above the board
-# Made the following new funtions - draw_main_screen, set_mode, draw_singleplayer, set_diff, set_player
-# Each function is self explanatory but if you have any problems text me 
-# Now the GUI is much better (Hopefully)
-# I want you guys to make customize the GUI to your own style i.e. add colours which you like for all the pygame windows, text, rectangles and circles
-# In a nutshell, just play around a bit and try to make the UI look better
-# Also do some stress testing i.e. check if each rectangular button works correctly. Use print statements to debug.
-# Check all the modes, difficulties and starting player choices to make sure they work correctly
-# Check if the draw condition works properly
-# After the game using pygame.time.wait causes some issues
-# So you could revert back to the main menu i.e the menu where the user has to select single or multiplayer
-# If there are any issues tell me or Pranav about it, and try to debug and correct it.
-
 import pygame
 
 pygame.init()
@@ -243,6 +230,13 @@ def change_board(board,c,r,moves):
         pygame.draw.circle(screen, YELLOW, (c*100 + 50, 50), 40)
     pygame.display.update()
 
+def change_board2(board,c,r,moves):
+    if(moves&1):
+        pygame.draw.circle(screen, YELLOW, (c*100 + 50, r*100 + 150), 40)
+    else:
+        pygame.draw.circle(screen, RED, (c*100 + 50, r*100 + 150), 40)
+    pygame.display.update()
+
 def print_board(board):
     for i in range(MAX_ROWS):
         for j in range(MAX_COLS):
@@ -397,7 +391,7 @@ while(True):
                         winner = winning_check(board, row, choice)
                         if(winner == 1):
                             pygame.draw.rect(screen, BLACK, (0,0,WIDTH,100))
-                            screen.blit(WINNER_FONT.render("Player 1 Won!", True, RED),(100,0))
+                            screen.blit(WINNER_FONT.render("Player 1 Won!", True, RED),(160,0))
                             #game_over = FINISH_FONT.render("GAME OVER!", True, (0,255,0))
                             #screen.blit(game_over, (60,240))
                             ONGOING = False
@@ -405,7 +399,7 @@ while(True):
                             pygame.time.wait(3000)
                         elif(winner == 2):
                             pygame.draw.rect(screen, BLACK, (0,0,WIDTH,100))
-                            screen.blit(WINNER_FONT.render("Player 2 Won!", True, YELLOW),(100,0))
+                            screen.blit(WINNER_FONT.render("Player 2 Won!", True, YELLOW),(160,0))
                             #game_over = FINISH_FONT.render("GAME OVER!", True, (0,255,0))
                             #screen.blit(game_over, (60,240))
                             ONGOING = False
@@ -413,7 +407,7 @@ while(True):
                             pygame.time.wait(3000)
                         elif(MOVES == 42):
                             pygame.draw.rect(screen, BLACK, (0,0,WIDTH,100))
-                            screen.blit(WINNER_FONT.render("DRAW!", True, (0,255,0)),(100,0))
+                            screen.blit(WINNER_FONT.render("DRAW!", True, (0,255,0)),(230,0))
                             #game_over = FINISH_FONT.render("GAME OVER!", True, (0,255,0))
                             #screen.blit(game_over, (60,240))
                             ONGOING = False
@@ -458,11 +452,11 @@ while(True):
                         if(valid_choice(board, choice)):
                             row = get_row(board,choice)
                             board[row][choice] = 1
-                            change_board(board, choice, row, MOVES)
+                            change_board2(board, choice, row, MOVES)
                             MOVES += 1
                             if(winning_check(board,row,choice)):
                                 pygame.draw.rect(screen, BLACK, (0,0,WIDTH,100))
-                                screen.blit(WINNER_FONT.render("Player Won!", True, RED),(100,0))
+                                screen.blit(WINNER_FONT.render("Player Won!", True, RED),(160,0))
                                 #game_over = FINISH_FONT.render("GAME OVER!", True, (0,255,0))
                                 #screen.blit(game_over, (60,240))
                                 ONGOING = False
@@ -484,11 +478,11 @@ while(True):
                                         best = value
                                     board[i][j] = 0
                             board[bestMove[0]][bestMove[1]] = 2
-                            change_board(board, bestMove[1], bestMove[0], MOVES)
+                            change_board2(board, bestMove[1], bestMove[0], MOVES)
                             MOVES += 1
                             if(winning_check(board,bestMove[0], bestMove[1])):
                                 pygame.draw.rect(screen, BLACK, (0,0,WIDTH,100))
-                                screen.blit(WINNER_FONT.render("Computer Won!", True, YELLOW),(100,0))
+                                screen.blit(WINNER_FONT.render("Computer Won!", True, YELLOW),(140,0))
                                 #game_over = FINISH_FONT.render("GAME OVER!", True, (0,255,0))
                                 #screen.blit(game_over, (60,240))
                                 ONGOING = False
@@ -496,7 +490,7 @@ while(True):
                                 pygame.time.wait(3000)
                             elif(MOVES == 42):
                                 pygame.draw.rect(screen, BLACK, (0,0,WIDTH,100))
-                                screen.blit(WINNER_FONT.render("DRAW!", True, (0,255,0)),(100,0))
+                                screen.blit(WINNER_FONT.render("DRAW!", True, (0,255,0)),(230,0))
                                 #game_over = FINISH_FONT.render("GAME OVER!", True, (0,255,0))
                                 #screen.blit(game_over, (60,240))
                                 ONGOING = False
@@ -505,8 +499,6 @@ while(True):
 
 
         else:
-            #board[MAX_ROWS-1][3] = 1
-            #change_board(board, 3, MAX_ROWS - 1, MOVES)
             best = INFN-1
             bestMove = [0,0]
             for j in range(MAX_COLS):
@@ -523,7 +515,7 @@ while(True):
                     board[i][j] = 0
                                     
             board[bestMove[0]][bestMove[1]] = 1
-            change_board(board, bestMove[1], bestMove[0], MOVES)
+            change_board2(board, bestMove[1], bestMove[0], MOVES)
             MOVES += 1
             while(ONGOING):
                 for event in pygame.event.get():
@@ -546,11 +538,11 @@ while(True):
                         if(valid_choice(board, choice)):
                             row = get_row(board,choice)
                             board[row][choice] = 2
-                            change_board(board, choice, row, MOVES)
+                            change_board2(board, choice, row, MOVES)
                             MOVES += 1
                             if(winning_check(board,row,choice)):
                                 pygame.draw.rect(screen, BLACK, (0,0,WIDTH,100))
-                                screen.blit(WINNER_FONT.render("Player Won!", True, YELLOW),(100,0))
+                                screen.blit(WINNER_FONT.render("Player Won!", True, YELLOW),(160,0))
                                 #game_over = FINISH_FONT.render("GAME OVER!", True, (0,255,0))
                                 #screen.blit(game_over, (60,240))
                                 ONGOING = False
@@ -559,7 +551,7 @@ while(True):
                                 break
                             elif(MOVES == 42):
                                 pygame.draw.rect(screen, BLACK, (0,0,WIDTH,100))
-                                screen.blit(WINNER_FONT.render("DRAW!", True, (0,255,0)),(100,0))
+                                screen.blit(WINNER_FONT.render("DRAW!", True, (0,255,0)),(230,0))
                                 #game_over = FINISH_FONT.render("GAME OVER!", True, (0,255,0))
                                 #screen.blit(game_over, (60,240))
                                 ONGOING = False
@@ -582,11 +574,11 @@ while(True):
                                     board[i][j] = 0
                                     
                             board[bestMove[0]][bestMove[1]] = 1
-                            change_board(board, bestMove[1], bestMove[0], MOVES)
+                            change_board2(board, bestMove[1], bestMove[0], MOVES)
                             MOVES += 1
                             if(winning_check(board,bestMove[0], bestMove[1])):
                                 pygame.draw.rect(screen, BLACK, (0,0,WIDTH,100))
-                                screen.blit(WINNER_FONT.render("Computer Won!", True,RED),(100,0))
+                                screen.blit(WINNER_FONT.render("Computer Won!", True,RED),(140,0))
                                 #game_over = FINISH_FONT.render("GAME OVER!", True, (0,255,0))
                                 #screen.blit(game_over, (60,240))
                                 ONGOING = False
