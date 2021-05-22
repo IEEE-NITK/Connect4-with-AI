@@ -1,14 +1,12 @@
 n = int(input())
-board = []
-for i in range (n):
-    board.append([])
-    for j in range (n):
-        board[i].append(0)
+def create_board():
+    return[[0 for j in range (n)] for i in range (n)]
 def printboard(b,n):
     for i in range (n):
         print(*b[i])
     print()
     return
+board = create_board()
 c = 0
 col = []
 diag1 = []
