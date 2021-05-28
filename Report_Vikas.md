@@ -146,7 +146,7 @@ the screen surface. A coordinate of (x, y) is located x pixels to the
 right and y pixels down from the top left corner.
 
 <p align = "center">
-<img width = "450" height = "20" src = "Images/rect.png"></p>
+<img width = "500" height = "22" src = "Images/rect.png"></p>
 
 Here, pygame.draw.rect() is used to draw a rectangle on the screen
 surface. (255,0,0) represents the colour of the rectangle in RGB, i.e.,
