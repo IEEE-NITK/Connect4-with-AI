@@ -9,6 +9,7 @@ to give worse moves.
 ### Core idea:
 
 ![](Images/AB_pruning.png)
+
 Consider the above game tree. First, node D is evaluated and it is
 assigned the value of max(3,5) = 5. Now the algorithm begins evaluating
 node E. It evaluates the left branch and gets a value of 6. Since E is a
