@@ -174,4 +174,4 @@ All the other screens of the game have been similarly created. Some of them are 
 <img width = "470" height = "470" src = "Images/1.png"><img align = "right" width = "470" height = "470" src = "Images/2.png">
 \
 \
-<img width = "470" height = "470" src = "Images/3.png"><img align = "right" width = "470" height = "470" src = "Images/4.png">
+<img width = "470" height = "470" src = "Images/4.png"><img align = "right" width = "470" height = "470" src = "Images/3.png">
