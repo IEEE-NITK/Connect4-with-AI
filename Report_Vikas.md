@@ -8,7 +8,9 @@ to give worse moves.
 
 ### Core idea:
 
+<p align = "center">
 ![](Images/AB_pruning.png)
+  </p>
 
 Consider the above game tree. First, node D is evaluated and it is
 assigned the value of max(3,5) = 5. Now the algorithm begins evaluating
