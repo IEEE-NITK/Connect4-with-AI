@@ -127,7 +127,7 @@ Welcome and Name are surface type objects created using the render()
 function.
 
 <p align = "center">
-<img width = "500" height = "30" src = "Images/Welcome.png"></p>
+<img width = "570" height = "30" src = "Images/Welcome.png"></p>
 
 The above line creates a surface that says “Welcome to our” in the text
 style represented by WINNER\_FONT object. The colour of this text is
@@ -146,7 +146,7 @@ the screen surface. A coordinate of (x, y) is located x pixels to the
 right and y pixels down from the top left corner.
 
 <p align = "center">
-<img width = "500" height = "20" src = "Images/rect.png"></p>
+<img width = "450" height = "20" src = "Images/rect.png"></p>
 
 Here, pygame.draw.rect() is used to draw a rectangle on the screen
 surface. (255,0,0) represents the colour of the rectangle in RGB, i.e.,
@@ -157,7 +157,7 @@ next two numbers, 380 and 100, are the width and height of the rectangle
 in pixels respectively.
 
 <p align = "center">
-<img width = "250" height = "20" src = "Images/update.png"></p>
+<img width = "200" height = "20" src = "Images/update.png"></p>
 
 All the changes made so far to the screen surface only affect the
 object, and are not displayed to the user. To update the screen seen by
