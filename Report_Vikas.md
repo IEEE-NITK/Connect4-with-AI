@@ -135,7 +135,7 @@ style represented by WINNER\_FONT object. The colour of this text is
 which is set to True to make the text appear smooth.
 
 <p align = "center">
-  <img width = "300" height = "20" src = "Images/blit.png"></p>
+  <img width = "280" height = "19" src = "Images/blit.png"></p>
 
 The blit() function draws the Welcome surface over the screen surface at
 the specified position. This position is the position on the screen
