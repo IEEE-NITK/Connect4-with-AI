@@ -5,11 +5,10 @@ specific depth to find the best moves. The algorithm can be optimized to
 “prune” or exclude those branches of the game tree which are guaranteed
 to give worse moves.
 
-![](Images/AB_pruning.png){width="3.234180883639545in"
-height="1.7833333333333334in"}
 
 ### Core idea:
 
+![](Images/AB_pruning.png)
 Consider the above game tree. First, node D is evaluated and it is
 assigned the value of max(3,5) = 5. Now the algorithm begins evaluating
 node E. It evaluates the left branch and gets a value of 6. Since E is a
