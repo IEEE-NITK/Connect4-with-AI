@@ -47,7 +47,7 @@ evaluated, significantly improving the speed of minimax algorithm.
 
 It has been implemented in the project in following manner:
 
-![](Images/AB_Implementation.png)
+![](Images/AB_implementation.png)
 
 ## Pygame
 
