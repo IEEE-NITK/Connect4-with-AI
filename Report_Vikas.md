@@ -149,3 +149,7 @@ in pixels respectively.
 All the changes made so far to the screen surface only affect the
 object, and are not displayed to the user. To update the screen seen by
 the user, we have to call the pygame.display.update() function.
+
+The code given above finally generates the following screen:
+
+![](Images/main.png)
