@@ -49,6 +49,8 @@ It has been implemented in the project in following manner:
 
 ![](Images/AB_implementation.png)
 
+---
+
 ## Pygame
 
 Pygame is a free and open-source python library commonly used for making
