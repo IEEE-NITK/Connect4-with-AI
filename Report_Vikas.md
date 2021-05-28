@@ -9,7 +9,7 @@ to give worse moves.
 ### Core idea:
 
 <p align = "center">
-![](Images/AB_pruning.png)
+<img src = "Images/AB_pruning.png">
   </p>
 
 Consider the above game tree. First, node D is evaluated and it is
