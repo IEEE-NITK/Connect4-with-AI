@@ -68,7 +68,7 @@ type of event, etc.
 
 An example of its use in the project is as follows:
 
-![](media/image3.png){width="4.691666666666666in" height="2.65in"}
+![](Images/pgevent.png)
 
 In the above code, the list of events is iterated. For each event, we
 check the type of the event. Pygame.QUIT represents the action of
@@ -101,8 +101,7 @@ create a new surface with text written on it.
 
 Let us take a look at an example where these are used in the project:
 
-![](media/image4.png){width="6.268055555555556in"
-height="3.997916666666667in"}
+![](Images/pgGUI.png)
 
 Here, screen is the surface that is displayed to the user. WINNER\_FONT
 and FINISH\_FONT are font type objects defined as follows:
