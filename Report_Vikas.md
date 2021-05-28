@@ -50,7 +50,7 @@ evaluated, significantly improving the speed of minimax algorithm.
 It has been implemented in the project in following manner:
 
 <p align = "center">
-<img src = "Images/AB_implementation.png">
+<img width = "800" height = "800" src = "Images/AB_implementation.png">
   </p>
 
 ---
