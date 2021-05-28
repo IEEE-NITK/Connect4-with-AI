@@ -50,7 +50,7 @@ evaluated, significantly improving the speed of minimax algorithm.
 It has been implemented in the project in following manner:
 
 <p align = "center">
-<img width = "800" height = "600" src = "Images/AB_implementation.png">
+<img width = "720" height = "540" src = "Images/AB_implementation.png">
   </p>
 
 ---
@@ -75,7 +75,7 @@ type of event, etc.
 An example of its use in the project is as follows:
 
 <p align = "center">
-<img src = "Images/pgevent.png"></p>
+<img width = "500" height = "270" src = "Images/pgevent.png"></p>
 
 In the above code, the list of events is iterated. For each event, we
 check the type of the event. Pygame.QUIT represents the action of
@@ -109,13 +109,13 @@ create a new surface with text written on it.
 Let us take a look at an example where these are used in the project:
 
 <p align = "center">
-<img src = "Images/pgGUI.png"></p>
+<img width = "600" height = "380" src = "Images/pgGUI.png"></p>
 
 Here, screen is the surface that is displayed to the user. WINNER\_FONT
 and FINISH\_FONT are font type objects defined as follows:
 
 <p align = "center">
-<img src = "Images/Fonts.png"></p>
+<img width = "500" height = "50" src = "Images/Fonts.png"></p>
 
 Pygame.font.SysFont() is used to create a font type object. The two
 arguments represent the font style and size respectively.
