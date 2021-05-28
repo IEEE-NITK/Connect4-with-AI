@@ -5,10 +5,10 @@ specific depth to find the best moves. The algorithm can be optimized to
 “prune” or exclude those branches of the game tree which are guaranteed
 to give worse moves.
 
-![](Images/AB_pruning.png){width="3.234180883639545in"
-height="1.7833333333333334in"}
 
 ### Core idea:
+
+![](Images/AB_pruning.png)
 
 Consider the above game tree. First, node D is evaluated and it is
 assigned the value of max(3,5) = 5. Now the algorithm begins evaluating
@@ -47,7 +47,7 @@ evaluated, significantly improving the speed of minimax algorithm.
 
 It has been implemented in the project in following manner:
 
-![](media/image2.png){width="6.171567147856518in" height="4.575in"}
+![](Images/AB_implementation.png)
 
 ## Pygame
 
@@ -68,7 +68,7 @@ type of event, etc.
 
 An example of its use in the project is as follows:
 
-![](media/image3.png){width="4.691666666666666in" height="2.65in"}
+![](Images/pgevent.png)
 
 In the above code, the list of events is iterated. For each event, we
 check the type of the event. Pygame.QUIT represents the action of
@@ -101,14 +101,12 @@ create a new surface with text written on it.
 
 Let us take a look at an example where these are used in the project:
 
-![](media/image4.png){width="6.268055555555556in"
-height="3.997916666666667in"}
+![](Images/pgGUI.png)
 
 Here, screen is the surface that is displayed to the user. WINNER\_FONT
 and FINISH\_FONT are font type objects defined as follows:
 
-![](media/image5.png){width="5.091666666666667in"
-height="0.5416666666666666in"}
+![](Images/Fonts.png)
 
 Pygame.font.SysFont() is used to create a font type object. The two
 arguments represent the font style and size respectively.
@@ -119,15 +117,14 @@ the black colour.
 Welcome and Name are surface type objects created using the render()
 function.
 
-![](media/image6.png){width="5.966666666666667in"
-height="0.3333333333333333in"}
+![](Images/Welcome.png)
 
 The above line creates a surface that says “Welcome to our” in the text
 style represented by WINNER\_FONT object. The colour of this text is
 (0,255,0) in RGB, i.e., green. The second argument is antialiasing,
 which is set to True to make the text appear smooth.
 
-![](media/image7.png){width="2.933333333333333in" height="0.2in"}
+![](Images/blit.png)
 
 The blit() function draws the Welcome surface over the screen surface at
 the specified position. This position is the position on the screen
@@ -137,8 +134,7 @@ The coordinates used are in pixels with origin at the top left corner of
 the screen surface. A coordinate of (x, y) is located x pixels to the
 right and y pixels down from the top left corner.
 
-![](media/image8.png){width="5.458333333333333in"
-height="0.23333333333333334in"}
+![](Images/rect.png)
 
 Here, pygame.draw.rect() is used to draw a rectangle on the screen
 surface. (255,0,0) represents the colour of the rectangle in RGB, i.e.,
@@ -148,9 +144,12 @@ are the x and y coordinates of the top left corner of the rectangle. The
 next two numbers, 380 and 100, are the width and height of the rectangle
 in pixels respectively.
 
-![](media/image9.png){width="2.2666666666666666in"
-height="0.20833333333333334in"}
+![](Images/update.png)
 
 All the changes made so far to the screen surface only affect the
 object, and are not displayed to the user. To update the screen seen by
 the user, we have to call the pygame.display.update() function.
+
+The code given above finally generates the following screen:
+
+![](Images/main.png)
