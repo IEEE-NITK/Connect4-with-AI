@@ -38,3 +38,7 @@ To know if the game ended in a draw, we check the MOVES variable. There are 7 x 
 We finally get the following code:
 
 <p align = "center"><img width = "650" height = "420" src = "Images/CLI.png"></p>
+
+The final 2 player CLI game is shown below:
+
+<img width = "350" height = "400" src = "Images/CLI_game.png"><img align = "right" width = "470" height = "400" src = "Images/win.png">
