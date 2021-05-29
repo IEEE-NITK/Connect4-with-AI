@@ -41,4 +41,4 @@ We finally get the following code:
 
 The final 2 player CLI game is shown below:
 
-<img width = "350" height = "400" src = "Images/CLI_game.png"><img align = "right" width = "470" height = "400" src = "Images/win.png">
+<img width = "470" height = "380" src = "Images/CLI_game2.png"><img align = "right" width = "470" height = "380" src = "Images/win.png">
