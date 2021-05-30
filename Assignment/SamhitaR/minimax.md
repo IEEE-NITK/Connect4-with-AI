@@ -21,7 +21,7 @@ This was used to implement the single player version of the game, i.e, the user 
 
 <img src = "gametree.png">
 
-![gametree](gametree.png)
+![gametree](Images/gametree.png)
 
 
 
