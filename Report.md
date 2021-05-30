@@ -295,3 +295,5 @@ All the other screens of the game have been similarly created. Some of them are 
 <img width = "48%" height = "470" src = "Images/4.png"><img align = "right" width = "48%" height = "470" src = "Images/3.png">
 
 ## Conclusion
+
+The end product is a fully functioning AI that can play a fairly decent game against any average human. However, there are some notable improvements that we can make in some of the functionality. Since a particular state of the board can be reached through more than one sequence of moves, it is evaluated multiple times as the algorithm does not store previous values. Another improvement that can be done is making the GUI more customizable and user friendly. Finally, additional features such as game review and game statistics can also be implemented in future iterations.
