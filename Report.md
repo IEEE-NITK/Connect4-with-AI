@@ -24,26 +24,26 @@ The first stage of our project was to make a simple CLI version of 2 player conn
 
 The first step to do so is make a game board. We have used an integer array with 6 rows and 7 columns as the game board. The number 0 represents an empty cell, 1 represents tokens of the first player and 2 represents tokens of the second player.
 
-<p align = "center"><img width = "580" height = "48" src = "Images/create_board.png"></p>
+<p align = "center"><img width = "580" height = "48" src = "https://github.com/IEEE-NITK/Connect4-with-AI/blob/main/Images/create_board.png"></p>
 
 We also define a print\_board() function here to display the board to the user in the command line terminal. The function iterates through the board and prints the value in each cell.
 
-<p align = "center"><img width = "380" height = "130" src = "Images/print_board.png"></p>
+<p align = "center"><img width = "380" height = "130" src = "https://github.com/IEEE-NITK/Connect4-with-AI/blob/main/Images/print_board.png"></p>
 
 The next task is to take input from the user and insert their piece in the game board. We do so in the following way:
 
 1. Check if the column entered by the user has any empty cells. We define the valid\_choice() function which checks if the topmost cell of the entered column number is empty or not. It does not need to check other cells since pieces fall to the bottom in the vertical Connect 4 board.
 If the entered column is full, a message is printed on the screen.
 
-<p align = "center"><img width = "280" height = "120" src = "Images/valid_choice.png"></p>
+<p align = "center"><img width = "280" height = "120" src = "https://github.com/IEEE-NITK/Connect4-with-AI/blob/main/Images/valid_choice.png"></p>
 
 2. If the entered column is valid, then we get the lowest empty cell in that column using the get\_row() function. It iterates through the cells to find the required cell.
 
-<p align = "center"><img width = "370" height = "100" src = "Images/get_row.png"></p>
+<p align = "center"><img width = "370" height = "100" src = "https://github.com/IEEE-NITK/Connect4-with-AI/blob/main/Images/get_row.png"></p>
 
 3. Change the value of the cell to the user&#39;s value. The row and column numbers of the cell are known to us. To find the users value, we define a variable called MOVES, which tracks the number of moves made in the game. When it is odd, it is the second player&#39;s move, and when it is even, it is the first player&#39;s move. It also helps us to determine if the game ends in a draw as we will see later. MOVES is incremented after each move.
 
-<p align = "center"><img width = "350" height = "130" src = "Images/moves.png"></p>
+<p align = "center"><img width = "350" height = "130" src = "https://github.com/IEEE-NITK/Connect4-with-AI/blob/main/Images/moves.png"></p>
 
 Finally, we must determine when the game ends and print an appropriate message. The game ends when one of the players win, or if the board becomes full, in which case it is a draw.
 
@@ -51,20 +51,20 @@ To determine if a player has won the game, we define a function winning\_check()
 
 Following is a section from the winning\_check() function:
 
-<p align = "center"><img width = "500" height = "200" src = "Images/winning_check.png"></p>
+<p align = "center"><img width = "500" height = "200" src = "https://github.com/IEEE-NITK/Connect4-with-AI/blob/main/Images/winning_check.png"></p>
 
 To know if the game ended in a draw, we check the MOVES variable. There are 7 x 6 = 42 cells in the board. When the MOVES variable becomes 42, the board is full, and the game ends in a draw provided that neither player has won.
 
 We finally get the following code:
 
-<p align = "center"><img width = "650" height = "420" src = "Images/CLI.png"></p>
+<p align = "center"><img width = "650" height = "420" src = "https://github.com/IEEE-NITK/Connect4-with-AI/blob/main/Images/CLI.png"></p>
 
 The final 2 player CLI game is shown below:
 
-<!-- <img width = "470" height = "380" src = "Images/CLI_game2.png"> -->
-<p align = "center"><img width = "470" height = "380" src = "Images/win.png"></p>
+<!-- <img width = "470" height = "380" src = "https://github.com/IEEE-NITK/Connect4-with-AI/blob/main/Images/CLI_game2.png"> -->
+<p align = "center"><img width = "470" height = "380" src = "https://github.com/IEEE-NITK/Connect4-with-AI/blob/main/Images/win.png"></p>
 
-<!-- <img align = "center" width = "470" height = "380" src = "Images/win.png"> -->
+<!-- <img align = "center" width = "470" height = "380" src = "https://github.com/IEEE-NITK/Connect4-with-AI/blob/main/Images/win.png"> -->
 
 
 ## Minimax Algorithm:
@@ -77,7 +77,7 @@ This was used to implement the single player version of the game, i.e, the user 
 
 
 
-![gametree](Images/gametree.png)
+![gametree](https://github.com/IEEE-NITK/Connect4-with-AI/blob/main/Images/gametree.png)
 
 
 The core concept of this algorithm can be explained using this game tree.
@@ -89,7 +89,7 @@ At each level the maximum/minimum value of the child nodes is chosen depending o
 
 
 
-![minmaxcode](Images/minmaxcode.png "image_tooltip")
+![minmaxcode](https://github.com/IEEE-NITK/Connect4-with-AI/blob/main/Images/minmaxcode.png "image_tooltip")
 
 
 The minimax algorithm in our game is implemented using the recursive minimax function which takes the depth, maximizing player and number of moves as parameters and it returns the most favourable column according to the highest score. In case the maximizing player has won, the function returns the maximum possible value infinity and returns negative infinity if the minimizing player has won. In case the game is a draw, zero is returned. In case the depth passed to the function is zero then the overall score calculated for the current board by the score_move function is returned. In all of these cases no column is returned since no further moves can be checked by the function. All these cases form the base cases of the function.
@@ -103,7 +103,7 @@ The overall score is evaluated using the evaluate and score_move functions. The 
 
 
 
-![score_move_code](Images/score_move_code.png "image_tooltip")
+![score_move_code](https://github.com/IEEE-NITK/Connect4-with-AI/blob/main/Images/score_move_code.png "image_tooltip")
 
 
 The evaluate function assigns  scores for a window passed to it depending on how many maximizing and minimizing tokens along with empty slots are present in the window, i.e, how favourable it is for the given player, and returns the score of that particular window.
@@ -112,7 +112,7 @@ The evaluate function assigns  scores for a window passed to it depending on how
 
 
 
-![evaluatecode](Images/evaluatecode.png "image_tooltip")
+![evaluatecode](https://github.com/IEEE-NITK/Connect4-with-AI/blob/main/Images/evaluatecode.png "image_tooltip")
 
 
 
@@ -127,7 +127,7 @@ to give worse moves.
 ### Core idea:
 
 <p align = "center">
-<img width ="400" height="250" src = "Images/AB_pruning.png">
+<img width ="400" height="250" src = "https://github.com/IEEE-NITK/Connect4-with-AI/blob/main/Images/AB_pruning.png">
   </p>
 
 Consider the above game tree. First, node D is evaluated and it is
@@ -168,7 +168,7 @@ evaluated, significantly improving the speed of minimax algorithm.
 It has been implemented in the project in following manner:
 
 <p align = "center">
-<img width = "720" height = "540" src = "Images/AB_implementation.png">
+<img width = "720" height = "540" src = "https://github.com/IEEE-NITK/Connect4-with-AI/blob/main/Images/AB_implementation.png">
   </p>
 
 ---
@@ -193,7 +193,7 @@ type of event, etc.
 An example of its use in the project is as follows:
 
 <p align = "center">
-<img width = "500" height = "270" src = "Images/pgevent.png"></p>
+<img width = "500" height = "270" src = "https://github.com/IEEE-NITK/Connect4-with-AI/blob/main/Images/pgevent.png"></p>
 
 In the above code, the list of events is iterated. For each event, we
 check the type of the event. Pygame.QUIT represents the action of
@@ -227,13 +227,13 @@ create a new surface with text written on it.
 Let us take a look at an example where these are used in the project:
 
 <p align = "center">
-<img width = "600" height = "380" src = "Images/pgGUI.png"></p>
+<img width = "600" height = "380" src = "https://github.com/IEEE-NITK/Connect4-with-AI/blob/main/Images/pgGUI.png"></p>
 
 Here, screen is the surface that is displayed to the user. WINNER\_FONT
 and FINISH\_FONT are font type objects defined as follows:
 
 <p align = "center">
-<img width = "500" height = "50" src = "Images/Fonts.png"></p>
+<img width = "500" height = "50" src = "https://github.com/IEEE-NITK/Connect4-with-AI/blob/main/Images/Fonts.png"></p>
 
 Pygame.font.SysFont() is used to create a font type object. The two
 arguments represent the font style and size respectively.
@@ -245,7 +245,7 @@ Welcome and Name are surface type objects created using the render()
 function.
 
 <p align = "center">
-<img width = "570" height = "30" src = "Images/Welcome.png"></p>
+<img width = "570" height = "30" src = "https://github.com/IEEE-NITK/Connect4-with-AI/blob/main/Images/Welcome.png"></p>
 
 The above line creates a surface that says “Welcome to our” in the text
 style represented by WINNER\_FONT object. The colour of this text is
@@ -253,7 +253,7 @@ style represented by WINNER\_FONT object. The colour of this text is
 which is set to True to make the text appear smooth.
 
 <p align = "center">
-  <img width = "280" height = "19" src = "Images/blit.png"></p>
+  <img width = "280" height = "19" src = "https://github.com/IEEE-NITK/Connect4-with-AI/blob/main/Images/blit.png"></p>
 
 The blit() function draws the Welcome surface over the screen surface at
 the specified position. This position is the position on the screen
@@ -264,7 +264,7 @@ the screen surface. A coordinate of (x, y) is located x pixels to the
 right and y pixels down from the top left corner.
 
 <p align = "center">
-<img width = "500" height = "22" src = "Images/rect.png"></p>
+<img width = "500" height = "22" src = "https://github.com/IEEE-NITK/Connect4-with-AI/blob/main/Images/rect.png"></p>
 
 Here, pygame.draw.rect() is used to draw a rectangle on the screen
 surface. (255,0,0) represents the colour of the rectangle in RGB, i.e.,
@@ -275,7 +275,7 @@ next two numbers, 380 and 100, are the width and height of the rectangle
 in pixels respectively.
 
 <p align = "center">
-<img width = "200" height = "20" src = "Images/update.png"></p>
+<img width = "200" height = "20" src = "https://github.com/IEEE-NITK/Connect4-with-AI/blob/main/Images/update.png"></p>
 
 All the changes made so far to the screen surface only affect the
 object, and are not displayed to the user. To update the screen seen by
@@ -284,15 +284,15 @@ the user, we have to call the pygame.display.update() function.
 The code given above finally generates the following screen:
 
 <p align = "center">
-<img src = "Images/main.png"></p>
+<img src = "https://github.com/IEEE-NITK/Connect4-with-AI/blob/main/Images/main.png"></p>
 
 
 All the other screens of the game have been similarly created. Some of them are shown below:
 
-<img width = "48%" height = "470" src = "Images/1.png"><img align = "right" width = "48%" height = "470" src = "Images/2.png">
+<img width = "48%" height = "470" src = "https://github.com/IEEE-NITK/Connect4-with-AI/blob/main/Images/1.png"><img align = "right" width = "48%" height = "470" src = "https://github.com/IEEE-NITK/Connect4-with-AI/blob/main/Images/2.png">
 \
 \
-<img width = "48%" height = "470" src = "Images/4.png"><img align = "right" width = "48%" height = "470" src = "Images/3.png">
+<img width = "48%" height = "470" src = "https://github.com/IEEE-NITK/Connect4-with-AI/blob/main/Images/4.png"><img align = "right" width = "48%" height = "470" src = "https://github.com/IEEE-NITK/Connect4-with-AI/blob/main/Images/3.png">
 
 ## Conclusion
 
