@@ -76,9 +76,7 @@ This was used to implement the single player version of the game, i.e, the user 
 
 
 
-<p align = "center">
-![gametree](https://github.com/IEEE-NITK/Connect4-with-AI/blob/main/Images/gametree.png)
-</p>
+<p align = "center"><img width = "664" height = "330" src = "https://github.com/IEEE-NITK/Connect4-with-AI/blob/main/Images/gametree.png"> </p>
 
 The core concept of this algorithm can be explained using this game tree.
 
@@ -88,9 +86,7 @@ At each level the maximum/minimum value of the child nodes is chosen depending o
 
 
 
-<p align = "center">
-![minmaxcode](https://github.com/IEEE-NITK/Connect4-with-AI/blob/main/Images/minmaxcode.png "image_tooltip")
-</p>
+<p align = "center"><img width = "519" height = "796" src = "https://github.com/IEEE-NITK/Connect4-with-AI/blob/main/Images/minmaxcode.png"> </p>
 
 The minimax algorithm in our game is implemented using the recursive minimax function which takes the depth, maximizing player and number of moves as parameters and it returns the most favourable column according to the highest score. In case the maximizing player has won, the function returns the maximum possible value infinity and returns negative infinity if the minimizing player has won. In case the game is a draw, zero is returned. In case the depth passed to the function is zero then the overall score calculated for the current board by the score_move function is returned. In all of these cases no column is returned since no further moves can be checked by the function. All these cases form the base cases of the function.
 
@@ -102,18 +98,14 @@ The overall score is evaluated using the evaluate and score_move functions. The 
 
 
 
-<p align = "center">
-![score_move_code](https://github.com/IEEE-NITK/Connect4-with-AI/blob/main/Images/score_move_code.png "image_tooltip")
-</p>
+<p align = "center"><img width = "969" height = "803" src = "https://github.com/IEEE-NITK/Connect4-with-AI/blob/main/Images/score_move_code.png"> </p>
 
 The evaluate function assigns  scores for a window passed to it depending on how many maximizing and minimizing tokens along with empty slots are present in the window, i.e, how favourable it is for the given player, and returns the score of that particular window.
 
 
 
 
-<p align = "center">
-![evaluatecode](https://github.com/IEEE-NITK/Connect4-with-AI/blob/main/Images/evaluatecode.png "image_tooltip")
-</p>
+<p align = "center"><img width = "646" height = "595" src = "https://github.com/IEEE-NITK/Connect4-with-AI/blob/main/Images/evaluatecode.png"> </p>
 
 
 ## Alpha-Beta Pruning
